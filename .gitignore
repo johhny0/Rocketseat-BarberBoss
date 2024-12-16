@@ -1,0 +1,7 @@
+**/bin
+**/obj
+.vs/**/CopilotIndices
+.vs/**/FileContentIndex
+.vs/**/DesignTimeBuild
+.vs/**/v17
+.vs/**/ProjectEvaluation
