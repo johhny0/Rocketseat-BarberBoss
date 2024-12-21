@@ -24,7 +24,7 @@ namespace Application.UseCases.Billings.Register
             {
                 var errors = result.Errors.Select(e => e.ErrorMessage).ToList();
 
-                throw new BarberBossException(errors);
+                throw new ValidationException(errors);
             }
         }
     }

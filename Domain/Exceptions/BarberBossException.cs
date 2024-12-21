@@ -1,17 +1,17 @@
 ﻿namespace Domain.Exceptions
 {
-    public class BarberBossException : Exception
+    public abstract class BarberBossException : Exception
     {
-        public List<string> Errors { get; set; } = [];
+        public List<string> ErrorsMessage { get; set; }
 
         public BarberBossException(string message)
         {
-            Errors.Add(message);
+            ErrorsMessage = [message];
         }
 
         public BarberBossException(List<string> errors)
         {
-            Errors = errors;
+            ErrorsMessage = errors;
         }
     }
 }

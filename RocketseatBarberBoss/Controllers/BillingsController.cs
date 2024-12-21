@@ -41,23 +41,11 @@ namespace Api.Controllers
         [ProducesResponseType<ResponseErrors>(StatusCodes.Status400BadRequest)]
         public IActionResult Create([FromBody] RequestRegisterBilling registerbilling)
         {
-            try
-            {
-                var useCase = new RegisterBillingUseCase();
+            var useCase = new RegisterBillingUseCase();
 
-                var response = useCase.Execute(registerbilling);
+            var response = useCase.Execute(registerbilling);
 
-                return Created(string.Empty, response);
-            }
-            catch (BarberBossException bbe)
-            {
-                return BadRequest(new ResponseErrors(bbe.Errors));
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    new ResponseErrors("Unexpected error occours in server"));
-            }
+            return Created(string.Empty, response);
         }
 
         //[HttpPut]
