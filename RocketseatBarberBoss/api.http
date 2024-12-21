@@ -1,0 +1,32 @@
+@API_HostAddress = http://localhost:5047/api
+
+GET {{API_HostAddress}}/ HTTP/1.1
+Accept: application/json
+###
+GET {{API_HostAddress}}/billings/ HTTP/1.1
+Accept: application/json
+###
+GET {{API_HostAddress}}/billings/a1e58926-7556-42e6-a568-c3686265ada6 HTTP/1.1
+Accept: application/json
+###
+POST {{API_HostAddress}}/billings/ HTTP/1.1
+Content-Type: application/json
+{
+   "Title": "Title",
+   "Description": "Description",
+   "Value": 100.25,
+   "DueDate": "2024-12-21T16:52:20.2026199Z",
+   "PaymentMethod": 4
+}
+###
+PUT {{API_HostAddress}}/billings/a1e58926-7556-42e6-a568-c3686265ada6 HTTP/1.1
+Content-Type: application/json
+{
+   "nome": "Nome3",
+   "descricao": "Descricao3",
+   "prioridadeEnum": 2,
+   "dataLimite": "2024-12-18"
+}
+###
+DELETE {{API_HostAddress}}/billings/a1e58926-7556-42e6-a568-c3686265ada6
+Content-Type: application/json
