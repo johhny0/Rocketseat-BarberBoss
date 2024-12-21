@@ -1,6 +1,9 @@
-﻿using Communication.Request;
+﻿using Application.UseCases.Billings.Register;
+using Communication.Request;
 using Communication.Response;
+using Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Api.Controllers
 {
@@ -34,11 +37,27 @@ namespace Api.Controllers
 
 
         [HttpPost]
-        [ProducesResponseType<RequestRegisterBilling>(StatusCodes.Status201Created)]
+        [ProducesResponseType<DefaultResponse>(StatusCodes.Status201Created)]
         [ProducesResponseType<ResponseErrors>(StatusCodes.Status400BadRequest)]
         public IActionResult Create([FromBody] RequestRegisterBilling registerbilling)
         {
-            return Created();
+            try
+            {
+                var useCase = new RegisterBillingUseCase();
+
+                var response = useCase.Execute(registerbilling);
+
+                return Created(string.Empty, response);
+            }
+            catch (BarberBossException bbe)
+            {
+                return BadRequest(new ResponseErrors(bbe.Errors));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new ResponseErrors("Unexpected error occours in server"));
+            }
         }
 
         //[HttpPut]

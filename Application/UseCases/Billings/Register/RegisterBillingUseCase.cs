@@ -1,14 +1,31 @@
-﻿namespace Application.UseCases.Billings.Register
+﻿using Communication.Request;
+using Communication.Response;
+using Domain.Exceptions;
+
+namespace Application.UseCases.Billings.Register
 {
     public class RegisterBillingUseCase
     {
 
-        public Guid Execute()
+        public DefaultResponse Execute(RequestRegisterBilling registerBilling)
         {
+            Validate(registerBilling);
 
-
-            return Guid.Empty;
+            return new DefaultResponse { Id = Guid.Empty };
         }
 
+        private void Validate(RequestRegisterBilling registerBilling)
+        {
+           var validator = new RegisterBillingValidator();
+
+            var result = validator.Validate(registerBilling);
+
+            if (!result.IsValid)
+            {
+                var errors = result.Errors.Select(e => e.ErrorMessage).ToList();
+
+                throw new BarberBossException(errors);
+            }
+        }
     }
 }
