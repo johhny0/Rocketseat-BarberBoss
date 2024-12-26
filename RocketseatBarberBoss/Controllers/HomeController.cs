@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace RocketseatBarberBoss.Controllers
+namespace Api.Controllers
 {
     [ApiController]
     [Route("api")]
@@ -9,8 +9,9 @@ namespace RocketseatBarberBoss.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return Ok(new { 
-                Status = "Connected",
+            return Ok(new
+            {
+                Status = HomeControllerResource.SERVER_STATUS,
                 Date = DateTime.UtcNow
             });
         }

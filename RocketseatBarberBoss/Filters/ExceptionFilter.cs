@@ -19,33 +19,30 @@ namespace Api.Filters
             }
         }
 
-        private void HandleProjectException(ExceptionContext context)
+        private static void HandleProjectException(ExceptionContext context)
         {
-
-            ResponseErrors errorsResponse;
-            int statusCode;
-
             if (context.Exception is ValidationException validationException)
             {
-                errorsResponse = new ResponseErrors(validationException.ErrorsMessage);
-                statusCode = StatusCodes.Status400BadRequest;
+                BadRequest(context, new ResponseErrors(validationException.ErrorsMessage));
             }
             else
             {
-                errorsResponse = new ResponseErrors(context.Exception.Message);
-                statusCode = StatusCodes.Status400BadRequest;
+                BadRequest(context, new ResponseErrors(context.Exception.Message));
             }
-
-            context.HttpContext.Response.StatusCode = statusCode;
-            context.Result = new BadRequestObjectResult(errorsResponse);
         }
 
-        private void HandleUnkowException(ExceptionContext context)
+        private static void HandleUnkowException(ExceptionContext context)
         {
-            var errorRespose = new ResponseErrors("Unexpected error occours in server");
+            var responseErrors = new ResponseErrors(ExceptionFilterResource.UNKNOW_ERROR);
 
             context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
-            context.Result = new ObjectResult(errorRespose);
+            context.Result = new ObjectResult(responseErrors);
+        }
+
+        private static void BadRequest(ExceptionContext context, ResponseErrors responseErrors)
+        {
+            context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+            context.Result = new BadRequestObjectResult(responseErrors);
         }
     }
 }
