@@ -6,7 +6,6 @@ namespace Application.UseCases.Billings.Register
 {
     public class RegisterBillingUseCase
     {
-
         public DefaultResponse Execute(RequestRegisterBilling registerBilling)
         {
             Validate(registerBilling);
@@ -14,7 +13,7 @@ namespace Application.UseCases.Billings.Register
             return new DefaultResponse { Id = Guid.Empty };
         }
 
-        private void Validate(RequestRegisterBilling registerBilling)
+        private static void Validate(RequestRegisterBilling registerBilling)
         {
            var validator = new RegisterBillingValidator();
 
