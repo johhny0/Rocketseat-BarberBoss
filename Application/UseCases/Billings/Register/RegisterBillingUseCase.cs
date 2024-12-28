@@ -1,16 +1,37 @@
 ﻿using Communication.Request;
 using Communication.Response;
+using Domain;
 using Domain.Exceptions;
+using Domain.Repositories;
+using Domain.Repositories.Billings;
 
 namespace Application.UseCases.Billings.Register
 {
-    public class RegisterBillingUseCase
+    internal class RegisterBillingUseCase(
+        IBillingsRepository repository,
+        IUnitOfWork unitOfWork) 
+        : IRegisterBillingUseCase
     {
-        public DefaultResponse Execute(RequestRegisterBilling registerBilling)
+
+        public Guid Execute(RequestRegisterBilling registerBilling)
         {
             Validate(registerBilling);
 
-            return new DefaultResponse { Id = Guid.Empty };
+            var billing = new Billing
+            {
+                Title = registerBilling.Title!,
+                Description = registerBilling.Description,
+                DueDate = DateTime.Parse(registerBilling.DueDate!),
+                PaymentMethod = (PaymentMethod)registerBilling.PaymentMethod!,
+                Value = registerBilling.Value!.Value
+            };
+
+
+            repository.Add(billing);
+
+            unitOfWork.Commit();
+
+            return billing.Id;
         }
 
         private static void Validate(RequestRegisterBilling registerBilling)

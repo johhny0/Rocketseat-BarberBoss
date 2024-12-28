@@ -11,12 +11,6 @@ namespace Api.Controllers
     [Route("api/[controller]")]
     public class BillingsController : Controller
     {
-
-        public BillingsController()
-        {
-            
-        }
-
         //[ProducesResponseType<List<Billing>>(StatusCodes.Status200OK)]
         //[ProducesResponseType<Billing>(StatusCodes.Status204NoContent)]
         //[ProducesResponseType<ResponseErrors>(StatusCodes.Status400BadRequest)]
@@ -39,13 +33,14 @@ namespace Api.Controllers
         [HttpPost]
         [ProducesResponseType<DefaultResponse>(StatusCodes.Status201Created)]
         [ProducesResponseType<ResponseErrors>(StatusCodes.Status400BadRequest)]
-        public IActionResult Create([FromBody] RequestRegisterBilling registerbilling)
+        public IActionResult Create(
+            [FromServices] IRegisterBillingUseCase usecase,
+            [FromBody] RequestRegisterBilling registerbilling
+            )
         {
-            var useCase = new RegisterBillingUseCase();
+            var response = usecase.Execute(registerbilling);
 
-            var response = useCase.Execute(registerbilling);
-
-            return Created(string.Empty, response);
+            return Created(string.Empty, new { Id = response });
         }
 
         //[HttpPut]
