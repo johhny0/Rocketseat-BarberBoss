@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Domain.Repositories.Billings;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructure.DataAccess.Repositories
 {
@@ -12,7 +13,7 @@ namespace Infraestructure.DataAccess.Repositories
 
         public List<Billing> GetAll()
         {
-            throw new NotImplementedException();
+            return [.. dbContext.Billings.AsNoTracking()];
         }
 
         public Billing GetById(Guid id)

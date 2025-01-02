@@ -1,4 +1,5 @@
-﻿using Communication.Request;
+﻿using AutoMapper;
+using Communication.Request;
 using Communication.Response;
 using Domain;
 using Domain.Exceptions;
@@ -8,30 +9,23 @@ using Domain.Repositories.Billings;
 namespace Application.UseCases.Billings.Register
 {
     internal class RegisterBillingUseCase(
+        IMapper mapper,
         IBillingsRepository repository,
         IUnitOfWork unitOfWork) 
         : IRegisterBillingUseCase
     {
 
-        public Guid Execute(RequestRegisterBilling registerBilling)
+        public DefaultResponse Execute(RequestRegisterBilling registerBilling)
         {
             Validate(registerBilling);
 
-            var billing = new Billing
-            {
-                Title = registerBilling.Title!,
-                Description = registerBilling.Description,
-                DueDate = DateTime.Parse(registerBilling.DueDate!),
-                PaymentMethod = (PaymentMethod)registerBilling.PaymentMethod!,
-                Value = registerBilling.Value!.Value
-            };
-
+            var billing = mapper.Map<Billing>(registerBilling);
 
             repository.Add(billing);
 
             unitOfWork.Commit();
 
-            return billing.Id;
+            return mapper.Map<DefaultResponse>(billing);
         }
 
         private static void Validate(RequestRegisterBilling registerBilling)

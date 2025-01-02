@@ -1,9 +1,8 @@
-﻿using Application.UseCases.Billings.Register;
+﻿using Application.UseCases.Billings.GetAll;
+using Application.UseCases.Billings.Register;
 using Communication.Request;
 using Communication.Response;
-using Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Api.Controllers
 {
@@ -11,13 +10,16 @@ namespace Api.Controllers
     [Route("api/[controller]")]
     public class BillingsController : Controller
     {
-        //[ProducesResponseType<List<Billing>>(StatusCodes.Status200OK)]
-        //[ProducesResponseType<Billing>(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType<ResponseErrors>(StatusCodes.Status400BadRequest)]
-        //public IActionResult Index()
-        //{
-        //    return Ok();
-        //}
+        [HttpGet]
+        [ProducesResponseType<ResponseAllBillings>(StatusCodes.Status200OK)]
+        [ProducesResponseType<ResponseAllBillings>(StatusCodes.Status204NoContent)]
+        [ProducesResponseType<ResponseErrors>(StatusCodes.Status400BadRequest)]
+        public IActionResult Index([FromServices] IGetAllBillingUseCase usecase)
+        {
+            var response = usecase.Execute();
+
+            return Ok(response);
+        }
 
         //[HttpGet]
         //[Route("{id}")]
@@ -40,7 +42,7 @@ namespace Api.Controllers
         {
             var response = usecase.Execute(registerbilling);
 
-            return Created(string.Empty, new { Id = response });
+            return Created(string.Empty, response);
         }
 
         //[HttpPut]

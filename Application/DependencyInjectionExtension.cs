@@ -1,4 +1,6 @@
-﻿using Application.UseCases.Billings.Register;
+﻿using Application.AutoMapper;
+using Application.UseCases.Billings.GetAll;
+using Application.UseCases.Billings.Register;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
@@ -7,9 +9,21 @@ namespace Application
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            services.AddScoped<IRegisterBillingUseCase, RegisterBillingUseCase>();
+            AddAutoMapper(services);
+            AddUseCases(services);
 
             return services;
+        }
+
+        private static void AddAutoMapper(IServiceCollection services)
+        {
+            services.AddAutoMapper(typeof(AutoMapping));
+        }
+
+        private static void AddUseCases(IServiceCollection services)
+        {
+            services.AddScoped<IGetAllBillingUseCase, GetAllBillingUseCase>();
+            services.AddScoped<IRegisterBillingUseCase, RegisterBillingUseCase>();
         }
     }
 }

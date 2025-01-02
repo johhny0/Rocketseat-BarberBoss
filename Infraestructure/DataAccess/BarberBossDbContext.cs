@@ -5,6 +5,6 @@ namespace Infraestructure.DataAccess
 {
     public class BarberBossDbContext(DbContextOptions options) : DbContext(options)
     {
-        public DbSet<Billing>? Billings { get; set; }
+        public required DbSet<Billing> Billings { get; set; }
     }
 }
