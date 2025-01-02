@@ -1,4 +1,5 @@
 ﻿using Application.UseCases.Billings.GetAll;
+using Application.UseCases.Billings.GetById;
 using Application.UseCases.Billings.Register;
 using Communication.Request;
 using Communication.Response;
@@ -12,7 +13,7 @@ namespace Api.Controllers
     {
         [HttpGet]
         [ProducesResponseType<ResponseAllBillings>(StatusCodes.Status200OK)]
-        [ProducesResponseType<ResponseAllBillings>(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType<ResponseErrors>(StatusCodes.Status400BadRequest)]
         public IActionResult Index([FromServices] IGetAllBillingUseCase usecase)
         {
@@ -21,15 +22,19 @@ namespace Api.Controllers
             return Ok(response);
         }
 
-        //[HttpGet]
-        //[Route("{id}")]
-        //[ProducesResponseType<Billing>(StatusCodes.Status200OK)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //[ProducesResponseType<ResponseErrors>(StatusCodes.Status400BadRequest)]
-        //public IActionResult Get(Guid id)
-        //{
-        //    return Ok();
-        //}
+        [HttpGet]
+        [Route("{id}")]
+        [ProducesResponseType<ResponseBilling>(StatusCodes.Status200OK)]
+        [ProducesResponseType<ResponseErrors>(StatusCodes.Status400BadRequest)]
+        public IActionResult Get(
+            [FromServices] IGetByIdBillingUseCase useCase,
+            [FromRoute] Guid id
+            )
+        {
+            var response = useCase.Execute(id);
+
+            return Ok(response);
+        }
 
 
         [HttpPost]

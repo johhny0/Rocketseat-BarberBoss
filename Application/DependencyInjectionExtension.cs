@@ -1,5 +1,6 @@
 ﻿using Application.AutoMapper;
 using Application.UseCases.Billings.GetAll;
+using Application.UseCases.Billings.GetById;
 using Application.UseCases.Billings.Register;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,6 +25,7 @@ namespace Application
         {
             services.AddScoped<IGetAllBillingUseCase, GetAllBillingUseCase>();
             services.AddScoped<IRegisterBillingUseCase, RegisterBillingUseCase>();
+            services.AddScoped<IGetByIdBillingUseCase, GetByIdBillingUseCase>();
         }
     }
 }

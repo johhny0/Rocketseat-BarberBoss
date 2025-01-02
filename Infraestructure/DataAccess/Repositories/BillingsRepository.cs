@@ -16,9 +16,9 @@ namespace Infraestructure.DataAccess.Repositories
             return [.. dbContext.Billings.AsNoTracking()];
         }
 
-        public Billing GetById(Guid id)
+        public Billing? GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return dbContext.Billings.Find(id);
         }
 
         public void Remove(Billing billing)

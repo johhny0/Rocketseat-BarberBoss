@@ -9,9 +9,9 @@ namespace Api.Filters
     {
         public void OnException(ExceptionContext context)
         {
-            if (context.Exception is BarberBossException)
+            if (context.Exception is BarberBossException barberBossException)
             {
-                HandleProjectException(context);
+                HandleProjectException(context, barberBossException);
             }
             else
             {
@@ -19,15 +19,17 @@ namespace Api.Filters
             }
         }
 
-        private static void HandleProjectException(ExceptionContext context)
+        private static void HandleProjectException(ExceptionContext context, BarberBossException exception)
         {
-            if (context.Exception is ValidationException validationException)
+            if (exception is ObjectNotFound)
             {
-                BadRequest(context, new ResponseErrors(validationException.ErrorsMessage));
+                context.HttpContext.Response.StatusCode = StatusCodes.Status404NotFound;
+                context.Result = new NotFoundObjectResult(GetMessages(exception));
             }
             else
             {
-                BadRequest(context, new ResponseErrors(context.Exception.Message));
+                context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+                context.Result = new BadRequestObjectResult(GetMessages(exception));
             }
         }
 
@@ -39,10 +41,9 @@ namespace Api.Filters
             context.Result = new ObjectResult(responseErrors);
         }
 
-        private static void BadRequest(ExceptionContext context, ResponseErrors responseErrors)
+        private static dynamic GetMessages(BarberBossException exception)
         {
-            context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-            context.Result = new BadRequestObjectResult(responseErrors);
+            return new { Errors = exception.ErrorsMessage };
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Application.AutoMapper
         {
             CreateMap<Billing, DefaultResponse>();
             CreateMap<Billing, ResponseShortBilling>();
+            CreateMap<Billing, ResponseBilling>();
         }
     }
 }
