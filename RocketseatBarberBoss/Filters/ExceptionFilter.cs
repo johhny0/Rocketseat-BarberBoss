@@ -41,9 +41,9 @@ namespace Api.Filters
             context.Result = new ObjectResult(responseErrors);
         }
 
-        private static dynamic GetMessages(BarberBossException exception)
+        private static ResponseErrors GetMessages(BarberBossException exception)
         {
-            return new { Errors = exception.ErrorsMessage };
+            return new ResponseErrors(exception.ErrorsMessage);
         }
     }
 }
