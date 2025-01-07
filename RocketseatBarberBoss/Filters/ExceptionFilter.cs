@@ -21,16 +21,11 @@ namespace Api.Filters
 
         private static void HandleProjectException(ExceptionContext context, BarberBossException exception)
         {
-            if (exception is ObjectNotFound)
-            {
-                context.HttpContext.Response.StatusCode = StatusCodes.Status404NotFound;
-                context.Result = new NotFoundObjectResult(GetMessages(exception));
-            }
-            else
-            {
-                context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-                context.Result = new BadRequestObjectResult(GetMessages(exception));
-            }
+            context.HttpContext.Response.StatusCode = exception.GetStatusCode();
+
+            var errors = new ResponseErrors(exception.ErrorsMessage);
+
+            context.Result = new ObjectResult(errors);
         }
 
         private static void HandleUnkowException(ExceptionContext context)
@@ -38,12 +33,8 @@ namespace Api.Filters
             var responseErrors = new ResponseErrors(ExceptionFilterResource.UNKNOW_ERROR);
 
             context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
-            context.Result = new ObjectResult(responseErrors);
-        }
 
-        private static ResponseErrors GetMessages(BarberBossException exception)
-        {
-            return new ResponseErrors(exception.ErrorsMessage);
+            context.Result = new ObjectResult(responseErrors);
         }
     }
 }

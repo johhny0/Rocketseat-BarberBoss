@@ -1,4 +1,6 @@
-﻿namespace Domain.Exceptions
+﻿using System.Net;
+
+namespace Domain.Exceptions
 {
     public class ObjectNotFound : BarberBossException
     {
@@ -7,6 +9,8 @@
         {
             
         }
+
+        internal override HttpStatusCode StatusCode => HttpStatusCode.NotFound;
     }
 
 }
