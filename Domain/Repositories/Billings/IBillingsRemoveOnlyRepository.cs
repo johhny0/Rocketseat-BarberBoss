@@ -2,6 +2,6 @@
 {
     public interface IBillingsRemoveOnlyRepository
     {
-        void Remove(Guid id);
+        bool Remove(Guid id);
     }
 }

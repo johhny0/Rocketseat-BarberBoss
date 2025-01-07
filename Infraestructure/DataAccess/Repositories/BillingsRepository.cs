@@ -21,9 +21,16 @@ namespace Infraestructure.DataAccess.Repositories
             return dbContext.Billings.Find(id);
         }
 
-        public void Remove(Guid id)
+        public bool Remove(Guid id)
         {
-            throw new NotImplementedException();
+            var billing = GetById(id);
+
+            if (billing is null)
+                return false;
+
+            dbContext.Remove(billing);
+
+            return true;
         }
 
         public void Update(Billing billing)

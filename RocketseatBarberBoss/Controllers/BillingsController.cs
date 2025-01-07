@@ -1,4 +1,5 @@
-﻿using Application.UseCases.Billings.GetAll;
+﻿using Application.UseCases.Billings.Delete;
+using Application.UseCases.Billings.GetAll;
 using Application.UseCases.Billings.GetById;
 using Application.UseCases.Billings.Register;
 using Communication.Request;
@@ -59,14 +60,19 @@ namespace Api.Controllers
         //    return NoContent();
         //}
 
-        //[HttpDelete]
-        //[Route("{id}")]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //public IActionResult Delete([FromRoute] Guid id)
-        //{
-        //    return NoContent();
-        //}
+        [HttpDelete]
+        [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult Delete(
+            [FromServices] IDeleteBillingUseCase useCase,
+            [FromRoute] Guid id
+            )
+        {
+            useCase.Execute(id);
+
+            return NoContent();
+        }
 
 
     }
