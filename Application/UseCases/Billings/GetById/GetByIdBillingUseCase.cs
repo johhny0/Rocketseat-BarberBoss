@@ -7,7 +7,7 @@ using Domain.Repositories.Billings;
 namespace Application.UseCases.Billings.GetById
 {
     internal class GetByIdBillingUseCase(
-        IBillingsRepository repository,
+        IBillingsReadOnlyRepository repository,
         IMapper mapper
         ) : IGetByIdBillingUseCase
     {

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructure.DataAccess.Repositories
 {
-    internal class BillingsRepository(BarberBossDbContext dbContext) : IBillingsRepository
+    internal class BillingsRepository(BarberBossDbContext dbContext) : IBillingsWriteOnlyRepository, IBillingsUpdateOnlyRepository, IBillingsRemoveOnlyRepository, IBillingsReadOnlyRepository
     {
         public void Add(Billing billing)
         {
@@ -21,7 +21,7 @@ namespace Infraestructure.DataAccess.Repositories
             return dbContext.Billings.Find(id);
         }
 
-        public void Remove(Billing billing)
+        public void Remove(Guid id)
         {
             throw new NotImplementedException();
         }

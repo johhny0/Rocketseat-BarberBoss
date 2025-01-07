@@ -5,7 +5,7 @@ using Domain.Repositories.Billings;
 namespace Application.UseCases.Billings.GetAll
 {
     internal class GetAllBillingUseCase(
-        IBillingsRepository repository,
+        IBillingsReadOnlyRepository repository,
         IMapper mapper) : IGetAllBillingUseCase
     {
 

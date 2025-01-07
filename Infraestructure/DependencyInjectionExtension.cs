@@ -34,8 +34,10 @@ namespace Infraestructure
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IBillingsRepository, BillingsRepository>();
-
+            services.AddScoped<IBillingsReadOnlyRepository, BillingsRepository>();
+            services.AddScoped<IBillingsWriteOnlyRepository, BillingsRepository>();
+            services.AddScoped<IBillingsUpdateOnlyRepository, BillingsRepository>();
+            services.AddScoped<IBillingsRemoveOnlyRepository, BillingsRepository>();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Application.UseCases.Billings.Register
 {
     internal class RegisterBillingUseCase(
         IMapper mapper,
-        IBillingsRepository repository,
+        IBillingsWriteOnlyRepository repository,
         IUnitOfWork unitOfWork) 
         : IRegisterBillingUseCase
     {
