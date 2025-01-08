@@ -15,7 +15,7 @@ namespace Application.UseCases.Billings.Register
         : IRegisterBillingUseCase
     {
 
-        public DefaultResponse Execute(RequestRegisterBilling registerBilling)
+        public DefaultResponse Execute(RequestBilling registerBilling)
         {
             Validate(registerBilling);
 
@@ -28,9 +28,9 @@ namespace Application.UseCases.Billings.Register
             return mapper.Map<DefaultResponse>(billing);
         }
 
-        private static void Validate(RequestRegisterBilling registerBilling)
+        private static void Validate(RequestBilling registerBilling)
         {
-           var validator = new RegisterBillingValidator();
+           var validator = new BillingValidator();
 
             var result = validator.Validate(registerBilling);
 

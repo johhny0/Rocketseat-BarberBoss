@@ -16,14 +16,19 @@ namespace Infraestructure.DataAccess.Repositories
             return [.. dbContext.Billings.AsNoTracking()];
         }
 
-        public Billing? GetById(Guid id)
+        Billing? IBillingsReadOnlyRepository.GetById(Guid id)
+        {
+            return dbContext.Billings.AsNoTracking().FirstOrDefault(b => b.Id == id);
+        }
+
+        Billing? IBillingsUpdateOnlyRepository.GetById(Guid id)
         {
             return dbContext.Billings.Find(id);
         }
 
         public bool Remove(Guid id)
         {
-            var billing = GetById(id);
+            var billing = dbContext.Billings.Find(id);
 
             if (billing is null)
                 return false;
@@ -35,7 +40,8 @@ namespace Infraestructure.DataAccess.Repositories
 
         public void Update(Billing billing)
         {
-            throw new NotImplementedException();
+
+            dbContext.Billings.Update(billing);
         }
     }
 }

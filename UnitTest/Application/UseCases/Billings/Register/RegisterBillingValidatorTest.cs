@@ -1,5 +1,4 @@
 ﻿using Application.UseCases.Billings;
-using Application.UseCases.Billings.Register;
 using Communication.Request;
 using Domain;
 using FluentAssertions;
@@ -8,7 +7,7 @@ using UnitTest.Builder;
 namespace UnitTest.Application.UseCases.Billings.Register;
 public class RegisterBillingValidatorTest
 {
-    private readonly RegisterBillingValidator _validator = new();
+    private readonly BillingValidator _validator = new();
    
     [Fact]
     public void ShouldReturnErrorWhenTitleIsEmpty()

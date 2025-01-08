@@ -2,7 +2,7 @@
 
 namespace Communication.Request
 {
-    public class RequestRegisterBilling
+    public class RequestBilling
     {
         public string? Title { get; set; }
         public string? Description { get; set; }

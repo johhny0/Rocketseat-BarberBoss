@@ -5,6 +5,6 @@ namespace Application.UseCases.Billings.Register
 {
     public interface IRegisterBillingUseCase
     {
-        DefaultResponse Execute(RequestRegisterBilling registerBilling);
+        DefaultResponse Execute(RequestBilling registerBilling);
     }
 }

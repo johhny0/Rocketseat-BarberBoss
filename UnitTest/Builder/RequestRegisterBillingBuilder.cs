@@ -7,11 +7,11 @@ namespace UnitTest.Builder
 {
     public class RequestRegisterBillingBuilder
     {
-        private readonly RequestRegisterBilling _registerBillingValidator;
+        private readonly RequestBilling _registerBillingValidator;
 
         public RequestRegisterBillingBuilder()
         {
-            _registerBillingValidator = new Faker<RequestRegisterBilling>()
+            _registerBillingValidator = new Faker<RequestBilling>()
                 .RuleFor(r => r.Title, faker => faker.Commerce.ProductName())
                 .RuleFor(r => r.Description, faker => faker.Lorem.Text())
                 .RuleFor(r => r.DueDate, faker => faker.Date.Recent().ToString())
@@ -61,7 +61,7 @@ namespace UnitTest.Builder
             return this;
         }
 
-        public RequestRegisterBilling Build()
+        public RequestBilling Build()
         {
             return _registerBillingValidator;
         }

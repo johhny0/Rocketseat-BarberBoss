@@ -2,6 +2,7 @@
 using Application.UseCases.Billings.GetAll;
 using Application.UseCases.Billings.GetById;
 using Application.UseCases.Billings.Register;
+using Application.UseCases.Billings.Update;
 using Communication.Request;
 using Communication.Response;
 using Microsoft.AspNetCore.Mvc;
@@ -43,7 +44,7 @@ namespace Api.Controllers
         [ProducesResponseType<ResponseErrors>(StatusCodes.Status400BadRequest)]
         public IActionResult Create(
             [FromServices] IRegisterBillingUseCase usecase,
-            [FromBody] RequestRegisterBilling registerbilling
+            [FromBody] RequestBilling registerbilling
             )
         {
             var response = usecase.Execute(registerbilling);
@@ -51,14 +52,21 @@ namespace Api.Controllers
             return Created(string.Empty, response);
         }
 
-        //[HttpPut]
-        //[Route("{id}")]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(typeof(ResponseErrors), StatusCodes.Status400BadRequest)]
-        //public IActionResult Update([FromRoute] Guid id, [FromBody] RequestUpdateBilling updateBilling)
-        //{
-        //    return NoContent();
-        //}
+        [HttpPut]
+        [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ResponseErrors), StatusCodes.Status400BadRequest)]
+        public IActionResult Update(
+            [FromRoute] Guid id, 
+            [FromBody] RequestBilling updateBilling,
+            [FromServices] IUpdateBillingUseCase usecase
+            )
+        {
+            usecase.Execute(id, updateBilling);
+
+            return NoContent();
+        }
 
         [HttpDelete]
         [Route("{id}")]

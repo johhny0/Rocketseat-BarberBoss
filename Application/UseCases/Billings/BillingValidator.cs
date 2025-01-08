@@ -1,11 +1,11 @@
 ﻿using Communication.Request;
 using FluentValidation;
 
-namespace Application.UseCases.Billings.Register
+namespace Application.UseCases.Billings
 {
-    public class RegisterBillingValidator : AbstractValidator<RequestRegisterBilling>
+    public class BillingValidator : AbstractValidator<RequestBilling>
     {
-        public RegisterBillingValidator()
+        public BillingValidator()
         {
             RuleFor(x => x.Title).NotEmpty().WithMessage(BillingsResource.TITLE_REQUIRED);
 
