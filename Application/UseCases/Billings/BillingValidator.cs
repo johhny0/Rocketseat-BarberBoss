@@ -1,4 +1,5 @@
 ﻿using Communication.Request;
+using Application.UseCases.Billings.Resources;
 using FluentValidation;
 
 namespace Application.UseCases.Billings
@@ -7,19 +8,19 @@ namespace Application.UseCases.Billings
     {
         public BillingValidator()
         {
-            RuleFor(x => x.Title).NotEmpty().WithMessage(BillingsResource.TITLE_REQUIRED);
+            RuleFor(x => x.Title).NotEmpty().WithMessage(BillingValidationResource.TITLE_REQUIRED);
 
             RuleFor(x => x.DueDate)
-                .NotEmpty().WithMessage(BillingsResource.DUE_DATE_REQUIRED)
-                .Must(BeValidDate).WithMessage(BillingsResource.DUE_DATE_INVALID);
+                .NotEmpty().WithMessage(BillingValidationResource.DUE_DATE_REQUIRED)
+                .Must(BeValidDate).WithMessage(BillingValidationResource.DUE_DATE_INVALID);
 
             RuleFor(x => x.PaymentMethod)
-                .NotEmpty().WithMessage(BillingsResource.PAYMENT_METHOD_REQUIRED)
-                .IsInEnum().WithMessage(BillingsResource.PAYMENT_METHOD_NOT_VALID);
+                .NotEmpty().WithMessage(BillingValidationResource.PAYMENT_METHOD_REQUIRED)
+                .IsInEnum().WithMessage(BillingValidationResource.PAYMENT_METHOD_NOT_VALID);
 
             RuleFor(x => x.Value)
-                .NotEmpty().WithMessage(BillingsResource.VALUE_REQUIRED)
-                .GreaterThan(0).WithMessage(BillingsResource.VALUE_GREATER_THAN_ZERO);
+                .NotEmpty().WithMessage(BillingValidationResource.VALUE_REQUIRED)
+                .GreaterThan(0).WithMessage(BillingValidationResource.VALUE_GREATER_THAN_ZERO);
         }
 
         private bool BeValidDate(string? dueDate)

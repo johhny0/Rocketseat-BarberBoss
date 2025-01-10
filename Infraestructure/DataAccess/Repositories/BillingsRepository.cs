@@ -43,5 +43,18 @@ namespace Infraestructure.DataAccess.Repositories
 
             dbContext.Billings.Update(billing);
         }
+
+        public List<Billing> GetBillingsByMonth(DateOnly date)
+        {
+            return [.. dbContext.Billings
+                        .Where(b =>
+                        b.DueDate.Year == date.Year &&
+                        b.DueDate.Month == date.Month)
+                        .OrderBy(b => b.DueDate)
+                        .ThenBy(b => b.Title)
+                        .AsNoTracking()];
+        }
+
+
     }
 }

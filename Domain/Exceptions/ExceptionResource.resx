@@ -120,4 +120,7 @@
   <data name="OBJECT_NOT_FOUND" xml:space="preserve">
     <value>The {0} with Id '{1}' does not exists</value>
   </data>
+  <data name="PAYMENT_METHOD_CREDIT_CARD" xml:space="preserve">
+    <value>Credit Card</value>
+  </data>
 </root>

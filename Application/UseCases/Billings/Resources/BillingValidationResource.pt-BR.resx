@@ -117,10 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="OBJECT_NOT_FOUND" xml:space="preserve">
-    <value>O {0} com Id '{1}' não existe</value>
+  <data name="DUE_DATE_INVALID" xml:space="preserve">
+    <value>Data de Pagamento é invalida</value>
   </data>
-  <data name="PAYMENT_METHOD_CREDIT_CARD" xml:space="preserve">
-    <value>Cartão de Crédito</value>
+  <data name="DUE_DATE_REQUIRED" xml:space="preserve">
+    <value>Data de Pagamento é obrigatório</value>
+  </data>
+  <data name="PAYMENT_METHOD_NOT_VALID" xml:space="preserve">
+    <value>Forma de Pagamento é Invalida</value>
+  </data>
+  <data name="PAYMENT_METHOD_REQUIRED" xml:space="preserve">
+    <value>Forma de Pagamento é obrigatório</value>
+  </data>
+  <data name="TITLE_REQUIRED" xml:space="preserve">
+    <value>Titulo é obrigatório</value>
+  </data>
+  <data name="VALUE_GREATER_THAN_ZERO" xml:space="preserve">
+    <value>Valor deve ser maior que 0 (zero)</value>
+  </data>
+  <data name="VALUE_REQUIRED" xml:space="preserve">
+    <value>Valor é obrigatório</value>
   </data>
 </root>

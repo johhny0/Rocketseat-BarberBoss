@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Application.UseCases.Billings {
+namespace Domain.Resources {
     using System;
     
     
@@ -22,24 +22,24 @@ namespace Application.UseCases.Billings {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class BillingsResource {
+    internal class PaymentMethodResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal BillingsResource() {
+        internal PaymentMethodResource() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Application.UseCases.Billings.BillingsResource", typeof(BillingsResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Domain.Resources.PaymentMethodResource", typeof(PaymentMethodResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Application.UseCases.Billings {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,65 +61,56 @@ namespace Application.UseCases.Billings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Due Date is invalid.
+        ///   Looks up a localized string similar to Bank Slip.
         /// </summary>
-        public static string DUE_DATE_INVALID {
+        internal static string BANK_SLIP {
             get {
-                return ResourceManager.GetString("DUE_DATE_INVALID", resourceCulture);
+                return ResourceManager.GetString("BANK_SLIP", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Due Date is required.
+        ///   Looks up a localized string similar to Credit Card.
         /// </summary>
-        public static string DUE_DATE_REQUIRED {
+        internal static string CREDIT_CARD {
             get {
-                return ResourceManager.GetString("DUE_DATE_REQUIRED", resourceCulture);
+                return ResourceManager.GetString("CREDIT_CARD", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payment Method is not valid.
+        ///   Looks up a localized string similar to Debit Card.
         /// </summary>
-        public static string PAYMENT_METHOD_NOT_VALID {
+        internal static string DEBIT_CARD {
             get {
-                return ResourceManager.GetString("PAYMENT_METHOD_NOT_VALID", resourceCulture);
+                return ResourceManager.GetString("DEBIT_CARD", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payment Method is required.
+        ///   Looks up a localized string similar to FedNow.
         /// </summary>
-        public static string PAYMENT_METHOD_REQUIRED {
+        internal static string FEDNOW {
             get {
-                return ResourceManager.GetString("PAYMENT_METHOD_REQUIRED", resourceCulture);
+                return ResourceManager.GetString("FEDNOW", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title is required.
+        ///   Looks up a localized string similar to Money.
         /// </summary>
-        public static string TITLE_REQUIRED {
+        internal static string MONEY {
             get {
-                return ResourceManager.GetString("TITLE_REQUIRED", resourceCulture);
+                return ResourceManager.GetString("MONEY", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Value must be greater than 0 (zero).
+        ///   Looks up a localized string similar to On Credit.
         /// </summary>
-        public static string VALUE_GREATER_THAN_ZERO {
+        internal static string ON_CREDIT {
             get {
-                return ResourceManager.GetString("VALUE_GREATER_THAN_ZERO", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Value is required.
-        /// </summary>
-        public static string VALUE_REQUIRED {
-            get {
-                return ResourceManager.GetString("VALUE_REQUIRED", resourceCulture);
+                return ResourceManager.GetString("ON_CREDIT", resourceCulture);
             }
         }
     }

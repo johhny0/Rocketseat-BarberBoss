@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Domain.Exceptions {
+namespace Domain.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Domain.Exceptions {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ExceptionResource {
+    public class BillingsResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ExceptionResource() {
+        internal BillingsResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Domain.Exceptions {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Domain.Exceptions.ExceptionResource", typeof(ExceptionResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Domain.Resources.BillingsResource", typeof(BillingsResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,47 @@ namespace Domain.Exceptions {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {0} with Id &apos;{1}&apos; does not exists.
+        ///   Looks up a localized string similar to Description.
         /// </summary>
-        public static string OBJECT_NOT_FOUND {
+        public static string DESCRIPTION {
             get {
-                return ResourceManager.GetString("OBJECT_NOT_FOUND", resourceCulture);
+                return ResourceManager.GetString("DESCRIPTION", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Credit Card.
+        ///   Looks up a localized string similar to Due Date.
         /// </summary>
-        public static string PAYMENT_METHOD_CREDIT_CARD {
+        public static string DUE_DATE {
             get {
-                return ResourceManager.GetString("PAYMENT_METHOD_CREDIT_CARD", resourceCulture);
+                return ResourceManager.GetString("DUE_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Method.
+        /// </summary>
+        public static string PAYMENT_METHOD {
+            get {
+                return ResourceManager.GetString("PAYMENT_METHOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string TITLE {
+            get {
+                return ResourceManager.GetString("TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        public static string VALUE {
+            get {
+                return ResourceManager.GetString("VALUE", resourceCulture);
             }
         }
     }

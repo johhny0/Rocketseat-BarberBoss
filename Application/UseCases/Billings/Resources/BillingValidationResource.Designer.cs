@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Domain.Exceptions {
+namespace Application.UseCases.Billings.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Domain.Exceptions {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ExceptionResource {
+    public class BillingValidationResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ExceptionResource() {
+        internal BillingValidationResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Domain.Exceptions {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Domain.Exceptions.ExceptionResource", typeof(ExceptionResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Application.UseCases.Billings.Resources.BillingValidationResource", typeof(BillingValidationResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,65 @@ namespace Domain.Exceptions {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {0} with Id &apos;{1}&apos; does not exists.
+        ///   Looks up a localized string similar to Due Date is invalid.
         /// </summary>
-        public static string OBJECT_NOT_FOUND {
+        public static string DUE_DATE_INVALID {
             get {
-                return ResourceManager.GetString("OBJECT_NOT_FOUND", resourceCulture);
+                return ResourceManager.GetString("DUE_DATE_INVALID", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Credit Card.
+        ///   Looks up a localized string similar to Due Date is required.
         /// </summary>
-        public static string PAYMENT_METHOD_CREDIT_CARD {
+        public static string DUE_DATE_REQUIRED {
             get {
-                return ResourceManager.GetString("PAYMENT_METHOD_CREDIT_CARD", resourceCulture);
+                return ResourceManager.GetString("DUE_DATE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Method is not valid.
+        /// </summary>
+        public static string PAYMENT_METHOD_NOT_VALID {
+            get {
+                return ResourceManager.GetString("PAYMENT_METHOD_NOT_VALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Method is required.
+        /// </summary>
+        public static string PAYMENT_METHOD_REQUIRED {
+            get {
+                return ResourceManager.GetString("PAYMENT_METHOD_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title is required.
+        /// </summary>
+        public static string TITLE_REQUIRED {
+            get {
+                return ResourceManager.GetString("TITLE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value must be greater than 0 (zero).
+        /// </summary>
+        public static string VALUE_GREATER_THAN_ZERO {
+            get {
+                return ResourceManager.GetString("VALUE_GREATER_THAN_ZERO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value is required.
+        /// </summary>
+        public static string VALUE_REQUIRED {
+            get {
+                return ResourceManager.GetString("VALUE_REQUIRED", resourceCulture);
             }
         }
     }

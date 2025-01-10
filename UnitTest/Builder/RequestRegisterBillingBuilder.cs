@@ -1,7 +1,7 @@
 ﻿using Application.UseCases.Billings.Register;
 using Bogus;
 using Communication.Request;
-using Domain;
+using Domain.Enums;
 
 namespace UnitTest.Builder
 {

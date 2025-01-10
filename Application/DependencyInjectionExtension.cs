@@ -3,6 +3,7 @@ using Application.UseCases.Billings.Delete;
 using Application.UseCases.Billings.GetAll;
 using Application.UseCases.Billings.GetById;
 using Application.UseCases.Billings.Register;
+using Application.UseCases.Billings.Reports;
 using Application.UseCases.Billings.Update;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -30,6 +31,9 @@ namespace Application
             services.AddScoped<IGetByIdBillingUseCase, GetByIdBillingUseCase>();
             services.AddScoped<IDeleteBillingUseCase, DeleteBillingUseCase>();
             services.AddScoped<IUpdateBillingUseCase, UpdateBillingUseCase>();
+
+            services.AddScoped<IGenerateBillingsReportExcelUseCase, GenerateBillingsReportExcelUseCase>();
+            services.AddScoped<IGenerateBillingsReportPdfUseCase, GenerateBillingsReportPdfUseCase>();
         }
     }
 }

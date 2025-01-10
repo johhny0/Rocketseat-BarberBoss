@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="ClosedXML" Version="0.104.2" />
     <PackageReference Include="FluentValidation" Version="11.11.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
   </ItemGroup>
@@ -18,20 +19,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="UseCases\Billings\BillingsResource.Designer.cs">
+    <Compile Update="UseCases\Billings\Resources\BillingValidationResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>BillingsResource.resx</DependentUpon>
+      <DependentUpon>BillingValidationResource.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="UseCases\Billings\BillingsResource.pt-BR.resx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Update="UseCases\Billings\BillingsResource.resx">
+    <EmbeddedResource Update="UseCases\Billings\Resources\BillingValidationResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>BillingsResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>BillingValidationResource.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 

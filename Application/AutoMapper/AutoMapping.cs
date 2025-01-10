@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Application.UseCases.Billings.Reports;
+using AutoMapper;
 using Communication.Request;
 using Communication.Response;
 using Domain;
@@ -23,6 +24,7 @@ namespace Application.AutoMapper
             CreateMap<Billing, DefaultResponse>();
             CreateMap<Billing, ResponseShortBilling>();
             CreateMap<Billing, ResponseBilling>();
+            CreateMap<Billing, BillingXls>();
         }
     }
 }
