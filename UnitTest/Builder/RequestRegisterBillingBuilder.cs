@@ -1,5 +1,4 @@
-﻿using Application.UseCases.Billings.Register;
-using Bogus;
+﻿using Bogus;
 using Communication.Request;
 using Domain.Enums;
 

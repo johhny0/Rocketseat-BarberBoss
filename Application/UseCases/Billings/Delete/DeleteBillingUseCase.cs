@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Domain;
+﻿using Domain;
 using Domain.Exceptions;
 using Domain.Repositories;
 using Domain.Repositories.Billings;

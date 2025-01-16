@@ -1,6 +1,5 @@
 ﻿using Application.UseCases.Billings;
-using Communication.Request;
-using Domain;
+using Application.UseCases.Billings.Resources;
 using FluentAssertions;
 using UnitTest.Builder;
 
@@ -23,7 +22,7 @@ public class RegisterBillingValidatorTest
         // Assert
         result.IsValid.Should().BeFalse();
         result.Errors.Should().ContainSingle().And
-            .Contain(e => e.ErrorMessage.Equals(BillingsResource.TITLE_REQUIRED));
+            .Contain(e => e.ErrorMessage.Equals(BillingValidationResource.TITLE_REQUIRED));
     }
 
     [Fact]
@@ -40,7 +39,7 @@ public class RegisterBillingValidatorTest
         // Assert
         result.IsValid.Should().BeFalse();
         result.Errors.Should().ContainSingle().And
-            .Contain(e => e.ErrorMessage.Equals(BillingsResource.DUE_DATE_REQUIRED));
+            .Contain(e => e.ErrorMessage.Equals(BillingValidationResource.DUE_DATE_REQUIRED));
     }
 
     [Fact]
@@ -57,7 +56,7 @@ public class RegisterBillingValidatorTest
         // Assert
         result.IsValid.Should().BeFalse();
         result.Errors.Should().ContainSingle().And
-            .Contain(e => e.ErrorMessage.Equals(BillingsResource.DUE_DATE_INVALID));
+            .Contain(e => e.ErrorMessage.Equals(BillingValidationResource.DUE_DATE_INVALID));
     }
 
     [Fact]
@@ -74,7 +73,7 @@ public class RegisterBillingValidatorTest
         // Assert
         result.IsValid.Should().BeFalse();
         result.Errors.Should().ContainSingle().And
-            .Contain(e => e.ErrorMessage.Equals(BillingsResource.PAYMENT_METHOD_REQUIRED));
+            .Contain(e => e.ErrorMessage.Equals(BillingValidationResource.PAYMENT_METHOD_REQUIRED));
     }
 
     [Fact]
@@ -91,7 +90,7 @@ public class RegisterBillingValidatorTest
         // Assert
         result.IsValid.Should().BeFalse();
         result.Errors.Should().ContainSingle().And
-            .Contain(e => e.ErrorMessage.Equals(BillingsResource.PAYMENT_METHOD_NOT_VALID));
+            .Contain(e => e.ErrorMessage.Equals(BillingValidationResource.PAYMENT_METHOD_NOT_VALID));
     }
 
     [Fact]
@@ -108,7 +107,7 @@ public class RegisterBillingValidatorTest
         // Assert
         result.IsValid.Should().BeFalse();
         result.Errors.Should().ContainSingle().And
-            .Contain(e => e.ErrorMessage.Equals(BillingsResource.VALUE_REQUIRED));
+            .Contain(e => e.ErrorMessage.Equals(BillingValidationResource.VALUE_REQUIRED));
     }
 
     [Theory]
@@ -127,7 +126,7 @@ public class RegisterBillingValidatorTest
         // Assert
         result.IsValid.Should().BeFalse();
         result.Errors.Should().ContainSingle().And
-            .Contain(e => e.ErrorMessage.Equals(BillingsResource.VALUE_GREATER_THAN_ZERO));
+            .Contain(e => e.ErrorMessage.Equals(BillingValidationResource.VALUE_GREATER_THAN_ZERO));
     }
 
     [Fact]

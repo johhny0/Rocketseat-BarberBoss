@@ -2,15 +2,10 @@
 
 namespace Api.Middleware
 {
-    public class CultureMiddleware
+    public class CultureMiddleware(RequestDelegate next)
     {
-        private readonly RequestDelegate _next;
-        private static readonly List<string> _supportedLanguages = ["en", "pt-BR"];
-
-        public CultureMiddleware(RequestDelegate next)
-        {
-            _next = next;
-        }
+        private readonly RequestDelegate _next = next;
+        private static readonly List<string> _supportedLanguages = ["en-US", "pt-BR"];
 
         public async Task Invoke(HttpContext context)
         {
@@ -27,7 +22,7 @@ namespace Api.Middleware
 
             var cultureExists = _supportedLanguages.Contains(requestedCulture ?? string.Empty);
 
-            return cultureExists ? requestedCulture! : "en";
+            return cultureExists ? requestedCulture! : "en-US";
         }
 
         private static void SetCulture(string culture)

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controllers\HomeControllerResource.Designer.cs">
+    <Compile Update="Resources\HomeControllerResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>HomeControllerResource.resx</DependentUpon>
@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Controllers\HomeControllerResource.resx">
+    <EmbeddedResource Update="Resources\HomeControllerResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>HomeControllerResource.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

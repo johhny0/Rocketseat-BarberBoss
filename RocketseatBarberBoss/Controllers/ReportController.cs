@@ -1,9 +1,6 @@
 ﻿using Application.UseCases.Billings.Reports;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Rewrite;
-using Microsoft.VisualBasic.FileIO;
 using System.Net.Mime;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Api.Controllers
 {
@@ -29,10 +26,10 @@ namespace Api.Controllers
             return GenerateFile(date, fileResult, MediaTypeNames.Application.Octet);
         }
 
-        [HttpGet("pdf/{date}")]
+        [HttpGet("pdf")]
         public IActionResult GetPdf(
-            [FromServices] IGenerateBillingsReportExcelUseCase useCase, 
-            DateOnly date)
+            [FromServices] IGenerateBillingsReportPdfUseCase useCase, 
+            [FromHeader] DateOnly date)
         {
             byte[] fileResult = useCase.Execute(date);
 
@@ -51,7 +48,9 @@ namespace Api.Controllers
         {
             var fileDate = date.ToString("yyyy-MM");
 
-            var fileName = $"Report.{fileDate}.xlsx";
+            var fileExtension = fileType == MediaTypeNames.Application.Pdf ? "pdf" : "xlsx";
+
+            var fileName = $"Report.{fileDate}.{fileExtension}";
 
             return File(fileResult, fileType, fileName);
         }

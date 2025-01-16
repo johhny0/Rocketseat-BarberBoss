@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Api.Controllers {
+namespace Application.UseCases.Billings.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Api.Controllers {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class HomeControllerResource {
+    public class BillingReportResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal HomeControllerResource() {
+        internal BillingReportResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Api.Controllers {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Api.Controllers.HomeControllerResource", typeof(HomeControllerResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Application.UseCases.Billings.Resources.BillingReportResource", typeof(BillingReportResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,11 @@ namespace Api.Controllers {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connected!.
+        ///   Looks up a localized string similar to Total spent in {0}.
         /// </summary>
-        public static string SERVER_STATUS {
+        public static string TOTAL_SPENT_INT {
             get {
-                return ResourceManager.GetString("SERVER_STATUS", resourceCulture);
+                return ResourceManager.GetString("TOTAL_SPENT_INT", resourceCulture);
             }
         }
     }
