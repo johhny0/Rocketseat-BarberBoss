@@ -6,11 +6,11 @@ Será criado uma API para gerenciar uma barbearia e, ao final, gerar relatórios e
 
 A aplicação deve conter as seguintes funcionalidades:
 
-- [ ]  Deve ser possível criar um faturamento;
-- [ ]  Deve ser possível visualizar um faturamento;
-- [ ]  Deve ser possível editar um faturamento;
-- [ ]  Deve ser possível excluir um faturamento;
-- [ ]  Deve ser possível exportar um relatório em PDF com os dados do faturamento;
-- [ ]  Deve ser possível exportar um relatório em Excel com os dados do faturamento;
-- [ ]  Crie tratativas de erros e filtros de exceções para a sua aplicação;
+- [ x ]  Deve ser possível criar um faturamento;
+- [ x ]  Deve ser possível visualizar um faturamento;
+- [ x ]  Deve ser possível editar um faturamento;
+- [ x ]  Deve ser possível excluir um faturamento;
+- [ x ]  Deve ser possível exportar um relatório em PDF com os dados do faturamento;
+- [ x ]  Deve ser possível exportar um relatório em Excel com os dados do faturamento;
+- [ x ]  Crie tratativas de erros e filtros de exceções para a sua aplicação;
 - [ ]  Crie testes de unidade para a sua aplicação!

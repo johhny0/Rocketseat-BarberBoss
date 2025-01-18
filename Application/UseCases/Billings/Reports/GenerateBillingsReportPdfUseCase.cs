@@ -64,6 +64,7 @@ namespace Application.UseCases.Billings.Reports
                     rowDescription.Height = ROW_HEIGHT;
                     
                     AddCellDescription(rowDescription.Cells[0], billing.Description);
+                    rowInfo.Cells[3].MergeDown = 1;
                 }
 
                 var row2 = table.AddRow();
