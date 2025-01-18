@@ -10,5 +10,7 @@ namespace Domain
         public decimal Value { get; set; }
         public DateTime DueDate { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
+
+        public required User User { get; set; }
     }
 }

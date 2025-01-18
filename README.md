@@ -25,4 +25,11 @@ A aplicação deve conter as seguintes funcionalidades:
 - [ ] Deve ser possível excluir um usuário;
 - [ ] As senhas devem ser criptografadas;
 - [ ] O usuário deve estar autenticado para entrar na aplicação;
+- [ ] Crie testes de unidade para as regras de negócio;
+- [ ] Crie testes de integração.
 
+
+#### Outras Informações
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add MigrationName --project Infraestructure --startup-project RocketseatBarberBoss
+dotnet ef database update --project Infraestructure --startup-project RocketseatBarberBoss

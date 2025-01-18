@@ -8,7 +8,6 @@ using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
 using PdfSharp.Fonts;
-using PdfSharp.Quality;
 
 namespace Application.UseCases.Billings.Reports
 {

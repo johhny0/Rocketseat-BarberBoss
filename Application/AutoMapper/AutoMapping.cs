@@ -17,6 +17,8 @@ namespace Application.AutoMapper
         private void RequestToEntity() 
         {
             CreateMap<RequestBilling, Billing>();
+
+            CreateMap<RequestUser, User>();
         }
 
         private void EntityToResponse()
@@ -25,6 +27,8 @@ namespace Application.AutoMapper
             CreateMap<Billing, ResponseShortBilling>();
             CreateMap<Billing, ResponseBilling>();
             CreateMap<Billing, BillingXls>();
+
+            CreateMap<User, ResponseUser>();
         }
     }
 }

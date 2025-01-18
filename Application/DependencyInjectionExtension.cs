@@ -5,6 +5,7 @@ using Application.UseCases.Billings.GetById;
 using Application.UseCases.Billings.Register;
 using Application.UseCases.Billings.Reports;
 using Application.UseCases.Billings.Update;
+using Application.UseCases.Users.Register;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
@@ -34,6 +35,10 @@ namespace Application
 
             services.AddScoped<IGenerateBillingsReportExcelUseCase, GenerateBillingsReportExcelUseCase>();
             services.AddScoped<IGenerateBillingsReportPdfUseCase, GenerateBillingsReportPdfUseCase>();
+
+            services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
+
+
         }
     }
 }

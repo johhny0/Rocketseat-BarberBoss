@@ -44,6 +44,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>BillingValidationResource.resx</DependentUpon>
     </Compile>
+    <Compile Update="UseCases\Users\Resources\UserValidationResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UserValidationResource.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -56,6 +61,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BillingValidationResource.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="UseCases\Users\Resources\UserValidationResource.pt-BR.resx">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="UseCases\Users\Resources\UserValidationResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserValidationResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 
