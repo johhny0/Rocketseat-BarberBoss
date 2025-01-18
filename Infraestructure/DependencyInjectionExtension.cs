@@ -1,7 +1,10 @@
 ﻿using Domain.Repositories;
 using Domain.Repositories.Billings;
+using Domain.Repositories.Users;
+using Domain.Security.Cryptography;
 using Infraestructure.DataAccess;
 using Infraestructure.DataAccess.Repositories;
+using Infraestructure.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +18,8 @@ namespace Infraestructure
             AddDbContext(services, configuration);
 
             AddRepositories(services);
+
+            services.AddScoped<IPasswordEncripter, Cryptography>();
 
             return services;
         }
@@ -33,10 +38,16 @@ namespace Infraestructure
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             services.AddScoped<IBillingsReadOnlyRepository, BillingsRepository>();
             services.AddScoped<IBillingsWriteOnlyRepository, BillingsRepository>();
             services.AddScoped<IBillingsUpdateOnlyRepository, BillingsRepository>();
             services.AddScoped<IBillingsRemoveOnlyRepository, BillingsRepository>();
+
+            services.AddScoped<IUsersReadOnlyRepository, UsersRepository>();
+            services.AddScoped<IUsersWriteOnlyRepository, UsersRepository>();
+            services.AddScoped<IUsersUpdateOnlyRepository, UsersRepository>();
+            services.AddScoped<IUsersRemoveOnlyRepository, UsersRepository>();
         }
     }
 }

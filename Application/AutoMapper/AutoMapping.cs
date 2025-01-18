@@ -18,7 +18,8 @@ namespace Application.AutoMapper
         {
             CreateMap<RequestBilling, Billing>();
 
-            CreateMap<RequestUser, User>();
+            CreateMap<RequestUser, User>()
+                .ForMember(dest => dest.Password, config => config.Ignore());
         }
 
         private void EntityToResponse()

@@ -28,6 +28,13 @@ A aplicação deve conter as seguintes funcionalidades:
 - [ ] Crie testes de unidade para as regras de negócio;
 - [ ] Crie testes de integração.
 
+### Futuro
+- [ ] Code Coverage
+- [ ] Increase test coverage to 20%
+- [ ] Increase test coverage to 40%
+- [ ] Increase test coverage to 60%
+- [ ] Increase test coverage to 80%
+- [ ] Increase test coverage to 90%
 
 #### Outras Informações
 dotnet tool install --global dotnet-ef
