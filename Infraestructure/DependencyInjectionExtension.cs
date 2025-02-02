@@ -2,6 +2,7 @@
 using Domain.Repositories.Billings;
 using Domain.Repositories.Users;
 using Domain.Security.Cryptography;
+using Domain.Security.Tokens;
 using Infraestructure.DataAccess;
 using Infraestructure.DataAccess.Repositories;
 using Infraestructure.Security;
@@ -17,11 +18,21 @@ namespace Infraestructure
         {
             AddDbContext(services, configuration);
 
+            AddToken(services, configuration);
+
             AddRepositories(services);
 
             services.AddScoped<IPasswordEncripter, Cryptography>();
 
             return services;
+        }
+
+        private static void AddToken(IServiceCollection services, IConfiguration configuration)
+        {
+            var expirationTimeInMinutes = configuration.GetValue<uint>("Settings:Jwt:ExpiresInMinutes");
+            var signingKey = configuration.GetValue<string>("Settings:Jwt:SigningKey");
+
+            services.AddScoped<IAccessTokenGenerator>(config => new JwtTokenGenerator(expirationTimeInMinutes, signingKey!));
         }
 
         private static void AddDbContext(IServiceCollection services, IConfiguration configuration)

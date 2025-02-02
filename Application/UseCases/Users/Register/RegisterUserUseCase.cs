@@ -7,15 +7,17 @@ using Domain.Exceptions;
 using Domain.Repositories;
 using Domain.Repositories.Users;
 using Domain.Security.Cryptography;
+using Domain.Security.Tokens;
 using FluentValidation.Results;
 
 namespace Application.UseCases.Users.Register
 {
     public class RegisterUserUseCase(
-        IMapper mapper, 
+        IMapper mapper,
         IPasswordEncripter encripter,
         IUsersReadOnlyRepository readOnlyRepository,
         IUsersWriteOnlyRepository writeOnlyRepository,
+        IAccessTokenGenerator tokenGenerator,
         IUnitOfWork unitOfWork
         ) : IRegisterUserUseCase
     {
@@ -29,7 +31,11 @@ namespace Application.UseCases.Users.Register
             writeOnlyRepository.Add(user);
             unitOfWork.Commit();
 
-            return new ResponseUser { Name = user.Name, Token = "TOKEN" };
+            return new ResponseUser
+            {
+                Name = user.Name,
+                Token = tokenGenerator.Generate(user)
+            };
         }
 
         private void Validate(RequestUser requestUser)
@@ -39,7 +45,7 @@ namespace Application.UseCases.Users.Register
             var validationResult = validator.Validate(requestUser);
 
             var emailExists = readOnlyRepository.ExistUserWithEmail(requestUser.Email);
-            if (emailExists) 
+            if (emailExists)
             {
                 var failure = new ValidationFailure(string.Empty, UserValidationResource.EMAIL_ALREADY_REGISTERED);
 

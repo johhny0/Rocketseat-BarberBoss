@@ -61,6 +61,15 @@ namespace Domain.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email and/or Password are not valid.
+        /// </summary>
+        public static string EMAIL_OR_PASSWORD_INVALID {
+            get {
+                return ResourceManager.GetString("EMAIL_OR_PASSWORD_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {0} with Id &apos;{1}&apos; does not exists.
         /// </summary>
         public static string OBJECT_NOT_FOUND {

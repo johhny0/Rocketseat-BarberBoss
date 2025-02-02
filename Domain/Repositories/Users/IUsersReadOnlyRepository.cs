@@ -4,7 +4,7 @@
     {
         bool ExistUserWithEmail(string email);
         List<User> GetAll();
-        User GetByEmail(string email);
-        User GetById(Guid id);
+        User? GetByEmail(string email);
+        User? GetById(Guid id);
     }
 }

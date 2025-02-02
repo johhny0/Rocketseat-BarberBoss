@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using Domain;
 using Domain.Repositories.Users;
 
 namespace Infraestructure.DataAccess.Repositories
@@ -21,14 +22,14 @@ namespace Infraestructure.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public User GetByEmail(string email)
+        public User? GetByEmail(string email)
         {
-            throw new NotImplementedException();
+            return dbContext.Users.FirstOrDefault(u => u.Email.Equals(email));
         }
 
-        public User GetById(Guid id)
+        public User? GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return dbContext.Users.FirstOrDefault(u => u.Id.Equals(id));
         }
 
         public bool Remove(Guid id)
