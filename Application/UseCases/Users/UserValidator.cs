@@ -12,7 +12,9 @@ namespace Application.UseCases.Users
 
             RuleFor(x => x.Email)
                 .NotEmpty().WithMessage(UserValidationResource.EMAIL_REQUIRED)
-                .EmailAddress().WithMessage(UserValidationResource.EMAIL_INVALID);
+                .EmailAddress()
+                .When(x => !string.IsNullOrWhiteSpace(x.Email), ApplyConditionTo.CurrentValidator)
+                .WithMessage(UserValidationResource.EMAIL_INVALID);
 
             RuleFor(x => x.Password).SetValidator(new PasswordValidatior<RequestUser>());
 

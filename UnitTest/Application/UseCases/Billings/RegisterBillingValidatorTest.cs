@@ -3,11 +3,11 @@ using Application.UseCases.Billings.Resources;
 using FluentAssertions;
 using UnitTest.Builder;
 
-namespace UnitTest.Application.UseCases.Billings.Register;
+namespace UnitTest.Application.UseCases.Billings;
 public class RegisterBillingValidatorTest
 {
     private readonly BillingValidator _validator = new();
-   
+
     [Fact]
     public void ShouldReturnErrorWhenTitleIsEmpty()
     {
