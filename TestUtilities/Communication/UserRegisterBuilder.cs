@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using Communication.Request;
 
-namespace UnitTest.Builder
+namespace TestUtilities.Builder
 {
     public class UserRegisterBuilder
     {

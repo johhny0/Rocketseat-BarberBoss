@@ -3,7 +3,7 @@ using Application.UseCases.Users.Resources;
 using Communication.Request;
 using FluentAssertions;
 using FluentValidation;
-using UnitTest.Builder;
+using TestUtilities.Builder;
 
 namespace UnitTest.Application.UseCases.Users
 {

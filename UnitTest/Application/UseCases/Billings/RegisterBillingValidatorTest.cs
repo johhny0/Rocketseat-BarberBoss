@@ -1,9 +1,10 @@
 ﻿using Application.UseCases.Billings;
 using Application.UseCases.Billings.Resources;
 using FluentAssertions;
-using UnitTest.Builder;
+using TestUtilities.Builder;
 
 namespace UnitTest.Application.UseCases.Billings;
+
 public class RegisterBillingValidatorTest
 {
     private readonly BillingValidator _validator = new();

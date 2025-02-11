@@ -2,7 +2,7 @@
 using Communication.Request;
 using Domain.Enums;
 
-namespace UnitTest.Builder
+namespace TestUtilities.Builder
 {
     public class RequestRegisterBillingBuilder
     {
@@ -34,7 +34,7 @@ namespace UnitTest.Builder
 
         public RequestRegisterBillingBuilder WithPaymentMethod(int paymentMethod)
         {
-            _registerBillingValidator.PaymentMethod = (PaymentMethod) paymentMethod;
+            _registerBillingValidator.PaymentMethod = (PaymentMethod)paymentMethod;
 
             return this;
         }

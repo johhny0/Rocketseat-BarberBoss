@@ -1,8 +1,7 @@
 ﻿using Application.UseCases.Users;
 using Application.UseCases.Users.Resources;
-using Domain.Exceptions;
 using FluentAssertions;
-using UnitTest.Builder;
+using TestUtilities.Builder;
 
 namespace UnitTest.Application.UseCases.Users
 {
