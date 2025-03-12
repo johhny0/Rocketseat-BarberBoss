@@ -5,15 +5,25 @@ namespace TestUtilities.Cryptography
 {
     public class PasswordEncripterBuilder
     {
-        public static IPasswordEncripter Build()
-        {
-            var mock = new Mock<IPasswordEncripter>();
+        private readonly Mock<IPasswordEncripter> _mock = new ();
 
-            mock
+        public PasswordEncripterBuilder()
+        {
+            _mock
                 .Setup(pass => pass.Encrypt(It.IsAny<string>()))
                 .Returns("p@ssw0rdEncrypt");
+        }
 
-            return mock.Object;
+        public void Verify(string password)
+        {
+            _mock
+                .Setup(pass => pass.Verify(password, It.IsAny<string>()))
+                .Returns(true);
+        }
+
+        public IPasswordEncripter Build()
+        {
+            return _mock.Object;
         }
     }
 }

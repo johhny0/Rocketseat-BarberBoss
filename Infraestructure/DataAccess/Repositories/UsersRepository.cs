@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Spreadsheet;
-using Domain;
+﻿using Domain;
 using Domain.Repositories.Users;
 
 namespace Infraestructure.DataAccess.Repositories

@@ -2,7 +2,6 @@
 using Application.UseCases.Users.Register;
 using Application.UseCases.Users.Resources;
 using Domain.Exceptions;
-using Domain.Repositories.Users;
 using FluentAssertions;
 using TestUtilities.Builder;
 using TestUtilities.Cryptography;
@@ -14,7 +13,7 @@ namespace UnitTest.Application.UseCases.Users.Register
 {
     public class RegisterUserUseCaseTest
     {
-        private readonly RegisterUserUseCase _useCase;
+        private readonly IRegisterUserUseCase _useCase;
         private UsersReadOnlyRepositoryBuilder _usersReadOnlyRepository = new UsersReadOnlyRepositoryBuilder();
 
         public RegisterUserUseCaseTest()
@@ -25,9 +24,9 @@ namespace UnitTest.Application.UseCases.Users.Register
 
             var userWriteOnly = UsersWriteOnlyRepositoryBuilder.Build();
 
-            var accessTokenGenerator = AccessTokenGeneratorBuilder.Build();
+            var accessTokenGenerator = new AccessTokenGeneratorBuilder().Build();
 
-            var passwordEncrypter = PasswordEncripterBuilder.Build();
+            var passwordEncrypter = new PasswordEncripterBuilder().Build();
 
             _useCase = new RegisterUserUseCase(
                 mapper,

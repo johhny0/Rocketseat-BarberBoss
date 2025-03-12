@@ -1,5 +1,4 @@
-﻿using Bogus;
-using Domain;
+﻿using Domain;
 using Domain.Security.Tokens;
 using Moq;
 
@@ -7,7 +6,7 @@ namespace TestUtilities.Token
 {
     public class AccessTokenGeneratorBuilder
     {
-        public static IAccessTokenGenerator Build()
+        public IAccessTokenGenerator Build()
         {
             var mock = new Mock<IAccessTokenGenerator>();
 
