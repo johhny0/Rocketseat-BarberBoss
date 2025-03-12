@@ -12,6 +12,13 @@ namespace TestUtilities.Repositories
             _repository = new Mock<IUsersReadOnlyRepository>();
         }
 
+        public void ExistUserWithEmail(string email)
+        {
+            _repository
+                .Setup(repos => repos.ExistUserWithEmail(email))
+                .Returns(true);
+        }
+
         public IUsersReadOnlyRepository Build() => _repository.Object;
     }
 }
